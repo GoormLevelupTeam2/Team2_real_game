@@ -1,0 +1,131 @@
+pre{
+  color: white;
+  font-size: 100%;
+  margin-bottom: 0;
+}
+
+label {
+  font-family: Courier;
+}
+
+input {
+  background-color: black;
+  color: white;
+}
+
+button {
+  background-color: black;
+  color: white;
+  border: 1px solid grey;
+}
+
+body {
+  background-color: black;
+  color: white;
+}
+
+.form-control{
+  display: inline-block;
+  background: black;
+  color: white;
+  width: 400px;
+}
+
+.form-control:focus{
+  background: black;
+  color: white;
+}
+
+.btn-primary{
+  background: black;
+  border: 1px solid #ced4da;
+}
+
+.btn-primary:hover{
+  background: black;
+}
+
+.alert-dark{
+  background: black;
+  color: white;
+}
+
+.navbar-brand {
+  left: 0;
+  margin:0 auto;
+  text-align: center;
+}
+
+.bd-placeholder-img {
+  font-size: 1.125rem;
+  text-anchor: middle;
+  -webkit-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+@media (min-width: 768px) {
+  .bd-placeholder-img-lg {
+    font-size: 3.5rem;
+  }
+}
+
+.outer_div{
+     padding: 30px;
+     text-align: center;
+}
+
+.inner_div{
+     display: inline-block;
+     padding: 30px;
+}
+
+.user-input{
+  text-transform: capitalize;
+  text-align: center;
+}
+
+.wrongLetters{
+  float: left;
+  padding: 0px;
+}
+
+.top-players{
+  text-align: left;
+  float: right;
+}
+
+@keyframes dimIn{
+  0%{
+    opacity: 0;
+  }
+
+  100%{
+    opacity: 1;
+  }
+}
+
+.dim-in{
+  animation: dimIn 2s ease;
+}
+
+.guess{
+  padding: 10px;
+}
+
+.col{
+  float: left;
+}
+
+.lef{
+  width: 30%;
+}
+
+.rig{
+  width: 30%;
+}
+
+.cen{
+  width: 40%;
+}
