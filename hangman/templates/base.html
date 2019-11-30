@@ -119,17 +119,19 @@
 
             <br/>
         </div>
-
+    
         {% if user.is_authenticated %}
             <div class="footer">
+            <div class="container">
                 <a style="float: left;">
-                    <font size="20" face="Courier">WON:
+                    <font style="font-size: xx-large;" face="Courier">WON:
                         {{ stats.1 }}</font>
                 </a>
                 <a style="float: right;">
-                    <font size="20" face="Courier">LOST:
+                    <font style="font-size: xx-large;" face="Courier">LOST:
                         {{ stats.2 }}</font>
                 </a>
+                </div>
             </div>
         {% endif %}
 
