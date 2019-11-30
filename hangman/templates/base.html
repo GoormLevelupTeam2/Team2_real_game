@@ -64,9 +64,6 @@
                     </button>
                     <div class="collapse navbar-collapse" id="navbarNavDropdown">
                         <ul class="navbar-nav ml-auto text-center">
-                            <li class="nav-item active">
-                                <a class="nav-link" href="#">Comment</a>
-                            </li>
                             <li class="nav-item dropdown">
                                 {% if user.is_authenticated %}
                                     <a
@@ -127,6 +124,7 @@
                         <font style="font-size: xx-large;" face="Courier">WON:
                             {{ stats.1 }}</font>
                     </a>
+                    <a>{{stats}}</a>
                     <a style="float: right;">
                         <font style="font-size: xx-large;" face="Courier">LOST:
                             {{ stats.2 }}</font>

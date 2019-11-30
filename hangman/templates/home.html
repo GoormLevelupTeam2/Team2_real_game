@@ -26,6 +26,12 @@
                             var pic = data.pics;
                             var gover = data.game_over;
                             var wrong_letter = data.wrong_letter;
+							var end_message = data.end_message;
+							if (end_message != undefined){
+								alert(end_message);
+							}
+							
+							console.log(end_message);							
 
                             // if(!pic_old){ 	$("#hgpic").empty(); }
 

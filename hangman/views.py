@@ -107,7 +107,10 @@ def game(request):
         request.session['game_over'] = 1
         usr.update(loss=F('loss') + 1)
         request.session.modified = True
-        return JsonResponse(data())
+        end_data = data()
+        end_data['end_message'] = "끝났습니다."
+        # message
+        return JsonResponse(end_data)
     elif wrong_count < 7 and '_' not in guess and game_over == 2:
         usr.update(win=F('win') + 1)
         request.session['game_over'] = 0
