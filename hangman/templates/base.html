@@ -1,111 +1,118 @@
 <!doctype html>
 <html lang="en-us">
 <head>
-  {% load static %}
+    {% load static %}
 
-  <style>
-  .footer{
-    opacity: 0.5;
-    position: fixed;
-    left: 0;
-    bottom: 0;
-    width: 100%;
-    background-image: linear-gradient(
-      to right,
-      green {{ grad }},
-      red
-      );
-    color: white;
-    text-align: center;
-    border-radius: 20px;
-  }
-  </style>
+    <style>
+        .footer {
+            opacity: 0.5;
+            position: fixed;
+            left: 0;
+            bottom: 0;
+            width: 100%;
+            background-image: linear-gradient(
+                    to right,
+                    green {{ grad }},
+                    red
+            );
+            color: white;
+            text-align: center;
+            border-radius: 20px;
+        }
+    </style>
 
-  <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
-  <meta name="description" content="">
-  <meta name="author" content="Jan Sobczak">
-  <meta name="generator" content="Jekyll v3.8.5">
-  <title>Hangman</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description" content="">
+    <meta name="author" content="Jan Sobczak">
+    <meta name="generator" content="Jekyll v3.8.5">
+    <title>Hangman</title>
 
-  <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
+    <link rel="canonical" href="https://getbootstrap.com/docs/4.3/examples/album/">
 
-  <!-- Bootstrap core CSS -->
-  <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <!-- Bootstrap core CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css"
+          integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
 
-  <link rel="stylesheet" href="{% static 'styles.css' %}">
+    <link rel="stylesheet" href="{% static 'styles.css' %}">
 
-  <!-- Custom styles for this template -->
-  <link href="album.css" rel="stylesheet">
+    <!-- Custom styles for this template -->
+    <link href="album.css" rel="stylesheet">
 </head>
 <body>
 
-  <header>
+<header>
     <nav class="navbar navbar-dark bg-dark">
-      <a class="navbar-brand mr-sm-12" href="{% url "home" %}">
-        <img src="{% static 'man.png' %}" width=40px height=40px class="d-inline-block align-top" />
-        Hangman
-      </a>
-      {% if user.is_authenticated %}
-      <a class="nav-item nav-link" style="color:white;}">{{ stats.0 }}</a>
-      <a class="nav-item nav-link" style="color:white;" href="{% url "logout" %}">Logout</a>
-      {% else %}
-      <a class="nav-item nav-link" style="color:white;" href="{% url "login" %}">Login</a>
-      <a class="nav-item nav-link" style="color:white;" href="{% url "signup" %}">Sign Up</a>
-      {% endif %}
+        <a class="navbar-brand mr-sm-12" href="{% url "home" %}">
+            <img src="{% static 'man.png' %}" width=40px height=40px class="d-inline-block align-top"/>
+            Hangman
+        </a>
+        <a class="nav-item nav-link" style="color:white;}">Comment</a>
+        {% if user.is_authenticated %}
+            <a class="nav-item nav-link" style="color:white;}">{{ stats.0 }}</a>
+            <a class="nav-item nav-link" style="color:white;" href="{% url "logout" %}">Logout</a>
+        {% else %}
+            <a class="nav-item nav-link" style="color:white;" href="{% url "login" %}">Login</a>
+            <a class="nav-item nav-link" style="color:white;" href="{% url "signup" %}">Sign Up</a>
+        {% endif %}
     </nav>
-  </header>
+</header>
 
-  <main role="main">
+<main role="main">
 
     <div class="outer_div">
-      <br />
+        <br/>
 
-      {% if messages %}
-        {% for message in messages %}
-        <div id="log-alert" class="alert alert-dark alert-dismissable" role="alert">
-          <button class="close" data-dismiss="alert">
-            <small><sup>x</sup></small>
-          </button>
-          {{ message }}
-        </div>
-        {% endfor %}
-      {% endif %}
+        {% if messages %}
+            {% for message in messages %}
+                <div id="log-alert" class="alert alert-dark alert-dismissable" role="alert">
+                    <button class="close" data-dismiss="alert">
+                        <small><sup>x</sup></small>
+                    </button>
+                    {{ message }}
+                </div>
+            {% endfor %}
+        {% endif %}
 
-      {% block content %}
+        {% block content %}
 
-      {% endblock %}
+        {% endblock %}
 
-      <br />
+        <br/>
     </div>
 
     {% if user.is_authenticated %}
-    <div class = "footer">
-      <a style="float: left;"><font size="20" face="Courier">WON: {{ stats.1 }}</font></a>
-      <a style="float: right;"><font size="20" face="Courier">LOST: {{ stats.2 }}</font></a>
-    </div>
+        <div class="footer">
+            <a style="float: left;"><font size="20" face="Courier">WON: {{ stats.1 }}</font></a>
+            <a style="float: right;"><font size="20" face="Courier">LOST: {{ stats.2 }}</font></a>
+        </div>
     {% endif %}
 
-  </main>
+</main>
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
+<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.4.0/jquery.min.js"></script>
 
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
-  <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
-  <script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"
+        integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1"
+        crossorigin="anonymous"></script>
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"
+        integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM"
+        crossorigin="anonymous"></script>
+<script>
 
-  $(function(){
-    if("{{ messages }}"){
-      window.setTimeout(function(){
-        $("#log-alert").fadeTo(500, 0).slideUp(500, function(){
-          $(this).remove();
-        });
-      }, 3000);
-    };
-  });
+    $(function () {
+        if ("{{ messages }}") {
+            window.setTimeout(function () {
+                $("#log-alert").fadeTo(500, 0).slideUp(500, function () {
+                    $(this).remove();
+                });
+            }, 3000);
+        }
+        ;
+    });
 
-  </script>
-  {% block javascript %}{% endblock %}
+</script>
+{% block javascript %}{% endblock %}
 
 </body>
 
