@@ -79,11 +79,11 @@
                                         aria-expanded="false">
                                         {{ stats.0 }}
                                     </a>
-                                    <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                                    <div class="dropdown-menu text-center" aria-labelledby="navbarDropdownMenuLink">
                                         <a class="dropdown-item" href="{% url 'logout' %}">Logout</a>
                                     </div>
                                 {% else %}
-                                <li >
+                                <li class="nav-item active">
                                     <a class="nav-link" href="{% url 'login' %}">Login</a>
                                 </li>
                                 <li class="nav-item active">
@@ -119,18 +119,18 @@
 
             <br/>
         </div>
-    
+
         {% if user.is_authenticated %}
             <div class="footer">
-            <div class="container">
-                <a style="float: left;">
-                    <font style="font-size: xx-large;" face="Courier">WON:
-                        {{ stats.1 }}</font>
-                </a>
-                <a style="float: right;">
-                    <font style="font-size: xx-large;" face="Courier">LOST:
-                        {{ stats.2 }}</font>
-                </a>
+                <div class="container">
+                    <a style="float: left;">
+                        <font style="font-size: xx-large;" face="Courier">WON:
+                            {{ stats.1 }}</font>
+                    </a>
+                    <a style="float: right;">
+                        <font style="font-size: xx-large;" face="Courier">LOST:
+                            {{ stats.2 }}</font>
+                    </a>
                 </div>
             </div>
         {% endif %}
