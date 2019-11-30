@@ -26,12 +26,7 @@
                             var pic = data.pics;
                             var gover = data.game_over;
                             var wrong_letter = data.wrong_letter;
-							var end_message = data.end_message;
-							if (end_message != undefined){
-								alert(end_message);
-							}
 							
-							console.log(end_message);							
 
                             // if(!pic_old){ 	$("#hgpic").empty(); }
 
@@ -186,6 +181,7 @@
     <br/>
 
     <div id="lost" class="inner_div" style="display: none; opacity: 0;">
+		<font size="16" color="yellow">The Answer is ... {{word}} </font><br>
         <font size="16" color="red">Weakling...</font>
         <br/>
         <button type="button" class="btn btn-primary" onclick="location.reload()">Try Again</button>

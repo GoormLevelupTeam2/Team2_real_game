@@ -59,10 +59,10 @@ def home(request):
         win = getattr(Event.objects.get(name=request.user.username), "win")
         loss = getattr(Event.objects.get(name=request.user.username), "loss")
         stats = [request.user.username, win, loss]
-        return render(request, 'home.html', {'pics':HANGMANPICS[0], 'word_len': word_len, 'stats': stats, 'grad': _grad_(), 'top': _top_()})
+        return render(request, 'home.html', {'pics':HANGMANPICS[0], 'word_len': word_len, 'stats': stats, 'grad': _grad_(), 'top': _top_(), 'word': word})
     
     else:
-        return render(request, 'home.html', {'pics':HANGMANPICS[0], 'word_len': word_len, 'top': _top_()})
+        return render(request, 'home.html', {'pics':HANGMANPICS[0], 'word_len': word_len, 'top': _top_(), 'word': word})
 
 
 def game(request):
